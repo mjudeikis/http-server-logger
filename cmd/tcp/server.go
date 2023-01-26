@@ -8,13 +8,13 @@ import (
 )
 
 const (
-	HOST = "localhost"
 	PORT = "8080"
 	TYPE = "tcp"
 )
 
 func main() {
-	listen, err := net.Listen(TYPE, HOST+":"+PORT)
+	fmt.Println("Starting server on port " + PORT + "...")
+	listen, err := net.Listen(TYPE, ":"+PORT)
 	if err != nil {
 		log.Fatal(err)
 		os.Exit(1)
