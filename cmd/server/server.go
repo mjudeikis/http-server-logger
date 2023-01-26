@@ -48,5 +48,10 @@ func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", index)
 
-	http.ListenAndServe(":6020", RequestLogger(mux))
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "6020"
+	}
+
+	http.ListenAndServe(port, RequestLogger(mux))
 }
